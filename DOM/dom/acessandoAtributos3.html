@@ -16,7 +16,18 @@
         </ul>
     </div>
     <script>
-        // ...
+        // Acessando atributos personalizados a partir da notação ponto (.)
+        const lista = document.querySelector('#compras')
+
+        // Somente leitura. Os valores não podem ser alterados
+        console.log(lista.attributes); // Todos os atributos dentro de uma lista
+        console.log(lista.attributes[0]);
+        console.log(lista.attributes.id);
+        console.log(lista.attributes['data-urgencia']);
+
+        lista.attributes.destino = 7;
+        console.log('teste '+lista.attributes.destino); // Apesar de imprimir o valor recebido, o valor da propriedade não se altera
+        
     </script>
 </body>
 

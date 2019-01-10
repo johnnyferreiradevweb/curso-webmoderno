@@ -10,14 +10,37 @@
 <body class='conteudo exercicio'>
     <div>
         <label for="compras">Compras</label>
-        <ul id="compras" destino='escritório' data-urgencia="5">
+        <ul id="compras" destino='escritório' data-urgencia="5" data-bla="teste">
             <li>Café</li>
             <li>Água</li>
             <li>Copo Descartável</li>
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]');
+        console.log('Elemento ul ...............');
+        console.log('childNodes', lista.childNodes); // Mostra os filhos da lista
+        console.log('destino', lista.destino); // Não da pra acessar propriedades personalisadas somente com a notação ponto (.)
+        console.log('getAttribute', lista.getAttribute('destino')); // Para acessar propriedades personalisadas, deve-se, utilizar a funcao getAttribute()
+        console.log('hasAttribute', lista.hasAttribute('destino')); // Verifica se um elemento esta contido na lista
+        lista.setAttribute('destino', 'empresa'); // Alterando/Setando o valor da pripriedade
+        lista.setAttribute('status', 'aberto'); // Ao setar um atributo que não existe, automaticamente a funcao cria esse atributo
+        lista.removeAttribute('destino'); // Remove o atributo passado por parametro
+
+        // Atributo personalizados que iniciam com data- são tratados de uma forma diferente
+        console.log(lista.dataset); // Remove o prefixo data-
+        console.log(lista.dataset.urgencia);
+        lista.dataset.urgencia = 'Alterando o valor da propriedade';
+        console.log(lista.getAttribute('data-urgencia')); // Usando o getAttribute deve-se usar o nome completo
+        
+        // Alguns cuidados
+        const label = document.querySelector('label');
+        console.log(label.for); // Dessa forma não é possivel acessar
+        console.log(label.htmlFor); // Dessa forma é possivel acessar
+        console.log(label.getAttribute('for')); // Dessa forma é possivel acessar
+        
+        
+        
     </script>
 </body>
 
