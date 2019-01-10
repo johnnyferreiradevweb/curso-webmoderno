@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>              
+        // Usando querySelector
+        document.querySelector('#primeiro').classList.add('destaque');
+
+        // Funcao para automatizar a atribuicao de destaque de uma tag
+        const destacar = seletor => {
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+        }
+        // Funcao para automatizar a remoção de destaque de uma tag
+        const removerDestaque = seletor => {
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+        }
+
+        destacar('div');
+        removerDestaque('*');
+        destacar('.terceiro.ultimo');   // OBS1: os elementos não são separados por espaço ou virgula
+                                        // OBS2: funciona como o operador logico and (&&)
+
+        removerDestaque('*');
+        destacar(':not(#primeiro)'); // Selecione todos exeto...
+
+        removerDestaque('*');
+        destacar(':nth-child(1)');
+
+        removerDestaque('*');
+        destacar('div:nth-of-type(1)'); // Seleciona o nzimo elemento do tipo ...
+
+        removerDestaque('*');
+        destacar('[wb-attrib]')
+    </script>
+</body>
+</html>

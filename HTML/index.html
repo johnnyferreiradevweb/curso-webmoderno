@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Exercicios HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">00 - Teste</a> |
+        <a href="exercicios/links.html">05 - Links 1</a> |
+        <a href="exercicios/tabela.html">06 - Tabelas</a> |
+        <a href="exercicios/form/form.html">07 - Formularios</a> |
+        <a href="exercicios/imagens.html">08 - Imagens</a> |
+        <a href="exercicios/video.html">09 - Video</a> |
+        <a href="exercicios/div_span.html">10 - Div e Span</a>
+    </nav><br>
+    <section id="conteudo"></section><br><br>
+    <footer>
+        Curso Web Moderno
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.onclick = function (e) {
+                e.preventDefault()
+
+                const conteudo = document.querySelector('#conteudo')
+                fetch(link.href)
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Layout #02 - Blog/Portfólio </title>
+    <link rel="stylesheet" href="../css/tag.css">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        header {
+            grid-area: cabecalho;
+        }
+
+        nav {
+            grid-area: navegacao;
+        }
+
+        #ct1 { grid-area: conteudo1; }
+        #ct2 { grid-area: conteudo2; }
+        #ct3 { grid-area: conteudo3; }
+
+        footer {
+            grid-area: rodape;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 80px 600px 600px 600px 600px 300px;
+            grid-template-areas: 
+                'navegacao'
+                'cabecalho'
+                'conteudo1'
+                'conteudo2'
+                'conteudo3'
+                'rodape';
+        }
+    </style>
+</head>
+
+<body>
+    <main class="tag" id="ct1">CONTEÚDO</main>
+    <main class="tag" id="ct2">CONTEÚDO</main>
+    <main class="tag" id="ct3">CONTEÚDO</main>
+    <header class="tag">CABEÇALHO</header>
+    <footer class="tag">RODAPÉ</footer>
+    <nav class="tag">NAVEGAÇÃO</nav>
+
+    <script src="../js/tag.js"></script>
+</body>
+
+</html>

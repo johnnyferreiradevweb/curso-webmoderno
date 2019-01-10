@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Rokkitt" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            /* font-family: 'Rokkitt', serif; */
+            font-family: 'Oswald', sans-serif;
+        }
+
+        body {
+            background-color: #ccc;
+        }
+
+        .cabecalho {
+            position: relative;
+            background-color: rgb(48, 48, 48);
+            height: 60px;
+            border-bottom: 5px solid rgb(102, 212, 255);
+        }
+
+        .logo { 
+            position: absolute;
+            display: inline-block;
+            padding: 10px 10px;
+        }
+
+        .logo img{
+            height: 40px;
+        }
+
+        .menu {
+            position: absolute;
+            left: 250px;
+            display: inline-block;
+        }
+
+        ul {
+            position: relative;
+        }
+
+        li {
+            list-style-type: none;
+            display: inline-block;
+            margin-left: 0px;
+        }
+
+        li a {
+            display: block;
+            font-size: 22px;
+            text-decoration: none;
+            color: #fff;
+            padding: 8px;
+            margin-top: 6px;
+            border-radius: 2px;
+            background-color: none;
+        }
+
+        li a:hover {
+            background-color:#66d4ff;
+            color: black;
+        }
+
+        .menu-toggle {
+            float: right;
+            margin: 10px;
+            padding: 8px;
+            background-color: #888;
+            border: none;
+            color: white;
+            display: none;
+            border-radius: 4px;
+        }
+
+        .autenticacao {
+            float: right;
+            padding: 14px;
+            display: none;
+        }
+
+        .autenticacao a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 22px;
+        }
+
+        @media (min-width: 700px){
+            .autenticacao {
+                display: block;
+            }
+        }
+
+        @media (max-width: 699px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu{
+                display: none;
+            }
+        }
+
+        .botao {
+            border-radius: 20px;
+            margin-left: 10px;
+            padding: 4px 10px;
+        }
+
+        .destaque {
+            background-color: rgb(255, 86, 86);
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul class="">
+                <li>
+                    <a href="#inicio">Início</a>
+                </li><!--
+                --><li>
+                    <a href="#cursos">Cursos</a>
+                </li><!--
+                --><li>
+                    <a href="#sobre">Sobre</a>
+                </li><!--
+                --><li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+    <script src="js/tag.js"></script>
+    <script>
+        // Menu ativo
+        // Solução 1 (Com bugs)
+        /*
+        var hash = location.hash;
+        
+        var link = document.querySelectorAll('li > a').forEach(elem => {
+
+            elem.onclick = () => {  
+                if(location.hash != hash){
+                    console.log(location.hash);
+                    var elemAnterior = document.querySelector(`li [href="${location.hash}"]`);
+                    elemAnterior.style.backgroundColor = '#0000';
+                    hash = location.hash;
+                }
+                elem.style.backgroundColor = '#66d4ff';
+            }
+        })
+        */
+
+        // Solução 2 - (Melhor que a primeira, porém ainda com bugs)
+        
+        document.querySelectorAll('li [href]').forEach( elem => {
+            elem.onclick = () => {
+                elem.style.backgroundColor = '#66d4ff';
+                if(location.hash != location.href && location.hash != null){
+                    let anterior = document.querySelector(`li [href="${location.hash}"]`);
+                    anterior.style.backgroundColor = '#0000';
+                }
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

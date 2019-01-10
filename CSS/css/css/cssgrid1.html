@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid #01</title>
+    <style>
+        /* https://caniuse.com/#feat=css-grid */
+        
+        html,
+        body {
+            margin: 20px;
+            height: calc(100% - 40px);
+            background-color: lightgray;
+        }
+        
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: solid 5px dodgerblue;
+            background: #fff;
+        }
+
+        body {
+            display: grid;
+            
+            /* Trabalhando com colunas */
+            
+            grid-template-columns: 50% 50%; /* Determina o numero de colunas de acordo com a porcentagem */
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%);
+            grid-template-columns: repeat(4, 8.33%);
+            grid-template-columns: repeat(11, 100px) 100px; /* 11 vezes 100 + 100px */
+            /* minmax(100px, 300px) */
+            grid-template-columns: 200px 20% 1fr; /* # tres colunas de elementos */
+            /* # a primeira coluna irá possuir um valor absoluto de 200px */
+            /* # a segunda coluna terá um tamanho de 20% */
+            /* # a terceira é um fragmento. Pega o resto que sobrou e define o tamanho */
+            grid-template-columns: 3fr 6fr 3fr; /* funciona semelhante ao bootstrap. Ex: col-3 col-6 col-3 */
+            
+            /* Trabalhando com linhas */
+
+            grid-template-rows: 50% 25% 12.5% 12.5%; /* definindo o tamanho das quatro linhas do exemplo*/
+            grid-template-rows: 100px 1fr;
+            grid-template-rows: 100px auto auto auto; /* pega o restante e divide de forma igualitaria */
+        }
+
+        .d8 {
+            /* Mudando o posicionamento de um elemento */
+            grid-column-start: 2; /* inicie na coluna 2 e */
+            grid-column-end: 4; /* termine na coluna 4 */
+            grid-row-start: 3;
+            grid-row-end: 5; 
+            /* grid-row-end: span 2 - Tem o mesmo efeito do exemplo anterior */
+        }
+
+        /* Cuidados com sobreposição */
+        .d10,
+        .d11 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1; /* Os elementos 10 e 11 estão ocupando a mesma casa, nesse caso o 11 se sobrepos ao 10 */
+        }
+
+        .d10 {
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+    <div class="d3">3</div>
+    <div class="d4">4</div>
+    <div class="d5">5</div>
+    <div class="d6">6</div>
+    <div class="d7">7</div>
+    <div class="d8">8</div>
+    <div class="d9">9</div>
+    <div class="d10">10</div>
+    <div class="d11">11</div>
+    <div class="d12">12</div>
+</body>
+
+</html>

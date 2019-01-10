@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>      
+        // Selecionando elementos a partir do id        
+        document.getElementById('primeiro').classList.add('destaque');
+
+        // Selecionando elementos a partir do nome da tag
+        const divs = document.getElementsByTagName('div')
+         
+        // Transformando o conjunto de elementoss em um array
+        Array.from(divs).forEach(e => e.classList.remove('destaque'));
+
+        // Outra forma de criar um array com os elementos 
+        const divsArray = [...divs]; // operador sprad (não tenho certeza se a escrita é assim)
+        console.log(divsArray);
+        divsArray.forEach(e => e.classList.add('destaque'));
+        
+        // Selecionando elementos a partir da classe
+        const ultimosElementos = document.getElementsByClassName('ultimo');
+        console.log(ultimosElementos);
+        for(e of ultimosElementos) {
+            e.classList.remove('destaque');
+        }
+                
+    </script>
+</body>
+</html>

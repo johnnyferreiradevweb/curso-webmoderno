@@ -1,0 +1,57 @@
+<h1>Tabelas</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Preco</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>iPad</td>
+            <td>3289</td>
+            <td>5</td>
+            <td>16000</td>
+        </tr>
+        <tr>
+            <td>Samsung</td>
+            <td>2600</td>
+            <td>8</td>
+            <td>da tanto</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total</td> <!-- Pode ser usado o rowspan para linhas -->
+            <td>37.389,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+
+    }
+
+    thead tr {
+        border-bottom: solid 3px #444;
+    }
+
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+
+    tfoot{
+        background-color: #444;
+        color: #fff;
+        font-weight: bold
+    }
+</style>
