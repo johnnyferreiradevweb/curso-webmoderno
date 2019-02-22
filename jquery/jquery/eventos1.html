@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        input {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Eventos #01</h1>
+    <div id='posicao'></div>
+    <div id='cliques'>Cliques: 0</div>
+    <input type="text" placeholder="Cor de Background">
+
+    <script>
+        function mostrarPosicaoMouse(e) {
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+        $('body').on('mousemove', mostrarPosicaoMouse) // O parametro e ja esta implicito. Não se deve invocar a funcao desta forma: funcao(e)
+
+        $('#posicao').mouseover(e => { // Quando passar o mouse em cima do elemento selecionado
+            $('body').off('mousemove', mostrarPosicaoMouse) // off() remove um evento
+        })
+
+        $('#posicao').mouseleave(e => { // Quando tirar o mouse de cima do elemento selecionado
+            $('body').on('mousemove', mostrarPosicaoMouse)
+        })
+
+        let clicks = 0
+        $('body').click(e => {
+            $('#cliques').html(`Cliques: ${++clicks}`)
+        })
+
+        const backgroundOriginal = $('body').css('background-color')
+
+        $('input').keyup(function (e) {
+            const valor = $(this).val() // val() pega o valor
+            if(valor.match(/#[\da-fA-F]{3,6}/)){
+                $('body').css('background-color', valor)
+            }else{
+                $('body').css('background-color', backgroundOriginal)
+            }
+        })
+    </script>
+</body>

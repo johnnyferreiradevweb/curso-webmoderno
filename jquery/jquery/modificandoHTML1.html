@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #01</h1>
+    <div id='conteudo1'></div>
+    <div id='conteudo2'></div>
+    <div id='conteudo3'></div>
+    <div>Sem ID</div>
+
+    <script>
+        // Conteudo 1
+
+        // append() adiciona um elemento dentro do selecionado
+        $('#conteudo1').append('<p>1</p>')
+
+        // Conteudo 2
+        const elementos = [
+            // Se dentro do parametro do jQuery tiver um texto marcado (<>) quer dizer que o jquery vai criar um elemento
+            $('<li></li>').append('Arroz'), // Adicionando um texto ao li
+            $('<li>').append('Feijão'),
+            $('<li>').append('Carne')
+        ]
+
+        // const lista = $('<ul><li>Sorvete</li></ul>').append(elementos) // adiciona depois dos elementos que ja estão contidos, 
+        const lista = $('<ul><li>Sorvete</li></ul>').prepend(elementos) // Adiciona antes dos elementos que ja estão contidos 
+        $('#conteudo2').append(lista)
+
+        // Conteudo 3
+        $('#conteudo3').append('<h1>1</h1>')
+                .append('<h1>2</h1>').prepend('<h1>0</h1>')
+
+        $('#conteudo3').html('<h1>123</h1>') // Substitui o conteudo do elemento selecionado
+        $('#conteudo3').text('<h1>123</h1>') // Adiciona um texto dentro do elemento selecionado (não reconhece tags)
+
+        // Alterando todos os conteudos de uma unica vez
+        $('div[id]').html('<strong>Todos!</strong>')
+    </script>
+</body>
