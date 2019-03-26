@@ -1,0 +1,7 @@
+@import "~bootstrap/scss/bootstrap";
+
+// Reescreevendo a variavel $fa-font-path
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+@import "custom";

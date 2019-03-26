@@ -1,0 +1,10 @@
+Comando para instalar o modulo node responsavel por criar uma aplicação react
+    -> npm i -g create-react-app
+
+Para criar um novo projeto utiliza-se o seguinte comando:
+    -> create-react-app nome_do_projeto
+
+Para iniciar o desenvolvimento do projeto utiliza o seguinte comando:
+    -> npm start 
+    OBS: O terminal deve estar dentro da pasta do projeto.
+
