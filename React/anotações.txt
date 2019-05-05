@@ -8,3 +8,5 @@ Para iniciar o desenvolvimento do projeto utiliza o seguinte comando:
     -> npm start 
     OBS: O terminal deve estar dentro da pasta do projeto.
 
+Site para encontrar gradiendes
+    https://uigradients.com/#Alihossein
