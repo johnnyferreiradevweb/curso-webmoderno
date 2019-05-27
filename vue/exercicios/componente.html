@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Componente</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <saudacao nome="Johnny"></saudacao>
+    </div>
+    <script>
+        Vue.component('saudacao', {
+            props: ['nome'],
+            data: function () { // Quando estiver trabalhando com componentes deve-se usar uma função com retorno
+                return {
+                    contador: 0
+                }
+            },
+            methods: {
+
+            },
+            template: `
+                <div>
+                    Bom Dia {{ nome }}!
+                </div>
+            `
+        })
+
+        new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+</html>

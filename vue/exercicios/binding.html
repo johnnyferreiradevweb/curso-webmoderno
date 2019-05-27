@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{ link }}</p>
+        <p><a href="{{ link }}">Canal Cod3r</a></p> <!-- Forma errada de aplicar em uma propriedade -->
+        <p><a v-bind:href="link">Canal?</a></p> <!-- Forma correta s-->
+        <p><a :href="link">Canal</a></p> <!-- Outra forma correta -->
+        <p>
+            <input type="text" v-model="nome"><br>
+            <input type="text" :value="nome"><br>
+            <span>{{ nome }}</span><br>
+        </p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                link: "https://youtube.com/cod3rcursos",
+                nome: "Johnny"
+            },
+            watch: { // Responde a uma mudança de um atibuto
+                nome(novoValor){
+                    console.log(novoValor.toUpperCase())
+                }
+            }
+        })    
+    </script>
+</body>
+</html>
